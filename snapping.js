@@ -91,6 +91,7 @@ window.addEventListener('load', function () {
   var cirlces = [];
 
   // The line tool.
+  // The line tool.
   tools.line = function () {
     var tool = this;
     this.started = false;
@@ -103,31 +104,26 @@ window.addEventListener('load', function () {
     this.mousedown = function (ev) {
       tool.started = true;
       var coords = closest(ev._x, ev._y);
-      context.beginPath();
-      context.moveTo(coords[0], coords[1]);
       start_x = coords[0];
       start_y = coords[1];
     };
 
     //closest function
     //find circle closest to x, y
-    closest(x, y){
-        
-        var close=[];
-        var distance = Infinity
-        for (var i = 0; i < circles.length(); i++){
-          var c = circles[i].coords;
-          var d= (x-c[0])*(x-c[0]) + (y-c[1])*(y-c[1])
-          if ( d< distance){
-            close= c;
-            distance = d;
+    function closest(x, y){
+          var close = [];
+          var distance = Infinity;
+          for (var i = 0; i < circles.length; i++) {
+            var c = circles[i];
+            var d = (x - c[0])*(x - c[0]) + (y - c[1])*(y - c[1]);
+            if (d < distance) {
+              close = c;
+              distance = d;
+            }
           }
-    
-        }
-        //return array of closest circle center coordinates
-        return close;
-    };
- 
+          //return array of closest circle center coordinates
+          return close;
+      };
 
     this.mousemove = function (ev) {
       if (!tool.started) {
@@ -135,7 +131,8 @@ window.addEventListener('load', function () {
       }
 
       context.clearRect(0, 0, canvas.width, canvas.height);
-
+      context.beginPath();
+      context.moveTo(start_x, start_y);
       var coords = closest(ev._x, ev._y);
       context.lineTo(coords[0], coords[1]);
       end_x = coords[0];
