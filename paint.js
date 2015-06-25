@@ -283,29 +283,17 @@ window.addEventListener('load', function () {
 
       context.clearRect(0, 0, canvas.width, canvas.height);
       //first line- horizontal line from start point
-      context.beginPath();
+        context.beginPath();
       context.moveTo(tool.x0, tool.y0);
       context.lineTo(ev._x,   tool.y0);
-      context.stroke();
-      context.closePath();
-      //second line- vertical line to end point     
-      context.beginPath();
-      context.moveTo(ev._x, tool.y0);
       context.lineTo(ev._x,   ev._y);
-      context.stroke();
-      context.closePath();
-      //third line- horizontal line from end point
-      context.beginPath();
-      context.moveTo(ev._x, ev._y);
       context.lineTo(tool.x0,   ev._y);
-      context.stroke();
-      context.closePath();
-      //fourth line- vertical line to start point
-      context.beginPath();
-      context.moveTo(tool.x0, ev._y);
       context.lineTo(tool.x0,   tool.y0);
-      context.stroke();
       context.closePath();
+      context.fillStyle = "pink";
+      context.fill();
+      context.strokeStyle='pink';
+      context.stroke();
 
     };
 
