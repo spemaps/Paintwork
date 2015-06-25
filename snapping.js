@@ -110,6 +110,23 @@ window.addEventListener('load', function () {
     };
 
     //closest function
+    //find circle closest to x, y
+    closest(x, y){
+        
+        var close=[];
+        var distance = Infinity
+        for (var i = 0; i < circles.length(); i++){
+          var c = circles[i].coords;
+          var d= (x-c[0])*(x-c[0]) + (y-c[1])*(y-c[1])
+          if ( d< distance){
+            close= c;
+            distance = d;
+          }
+    
+        }
+        //return array of closest circle center coordinates
+        return close;
+    };
  
 
     this.mousemove = function (ev) {
@@ -182,6 +199,7 @@ window.addEventListener('load', function () {
         objects.push({type:"circle", coords:[tool.x0, tool.y0]});
       }
     };
+    
   };
 
   init();
