@@ -45,7 +45,7 @@ window.addEventListener('load', function () {
 
     function clickCoords(ev) {
       sessionStorage.objects = JSON.stringify(objects);
-      window.open("file:///Users/isabellabosetti/spe2015/github/GMaps_search/lists.html"); //change to own directory
+      window.open("file:///Users/isabellabosetti/spe2015/github/Paintwork/lists.html"); //change to own directory
     }
 
     // Attach the mousedown, mousemove and mouseup event listeners.
