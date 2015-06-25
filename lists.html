@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+  </head>
+    <body>
+
+      <p><script>
+      var objects = JSON.parse(sessionStorage.objects);
+      for(var i = 0; i < objects.length; i++){
+        if (objects[i].type == "line") {
+            var line = objects[i].coords;
+            document.write("Line: [" + line[0] + ", " + line[1] + "] to [" + line[2] + ", " + line[3] + "]" + "<br />");
+        }
+        else if (objects[i].type == "circle") {
+            var circle = objects[i].coords;
+            document.write("Circle: [" + circle[0] + ", " + circle[1] + "], radius = " + circle[2] + "<br />");
+        }
+        else if (objects[i].type == "stamp") {
+            var stamp = objects[i].coords;
+            document.write("Stamp: [" + stamp[0] + ", " + stamp[1] + "] <br />");
+        }
+        else if (objects[i].type == "rectangle") {
+            var rectangle = objects[i].coords;
+            document.write("Rectangle: [" + rectangle[0] + ", " + rectangle[1] + "] to [" + rectangle[2] + ", " + rectangle[3] + "]" + "<br />");
+        }
+        else if (objects[i].type == "triangle") {
+          var triangle = objects[i].coords;
+          document.write("Triangle: [" + triangle[0] + ", " + triangle[1] + "], [" + triangle[2] + ", " + triangle[3] + "], [" + triangle[4] + ", " + triangle[5] + "] <br />");
+        }
+      }; 
+      </script></p>
+      <div id="container">
+      <canvas id="myCanvas" width="563" height="272"></canvas></div>
+      <!--<script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        for(var i = 0; i < lists.length; i++) {
+          context.beginPath();
+          context.moveTo(lists[i][0], lists[i][1]); //start coords
+          context.lineTo(lists[i][2], lists[i][3]); //start coords
+          context.stroke();
+        }
+      </script>-->
+  </body>
+</html>
