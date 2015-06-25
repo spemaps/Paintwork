@@ -117,13 +117,15 @@ window.addEventListener('load', function () {
         return;
       }
 
+      var set_color: 'LightSkyBlue'
+
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       context.beginPath();
       context.moveTo(tool.x0, tool.y0);
       context.lineTo(ev._x,   ev._y);
       context.lineWidth = 5;
-      context.strokeStyle = 'LightSkyBlue';
+      context.strokeStyle = set_color;
       context.stroke();
       context.closePath();
     };
@@ -136,7 +138,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         //////append new line to list of lists
-        objects.push({type:"line", coords:[start_x, start_y, end_x, end_y]});
+        objects.push({type:"line", coords:[start_x, start_y, end_x, end_y], color: set_color});
       }
     }
   };
@@ -159,6 +161,8 @@ window.addEventListener('load', function () {
         return;
       }
 
+      var set_color: '#FFFF99'
+
       delta_x = tool.x0 - ev._x;
       delta_y = tool.y0 - ev._y;
       radius = Math.sqrt((delta_x)*(delta_x) + (delta_y)*(delta_y));
@@ -167,9 +171,9 @@ window.addEventListener('load', function () {
 
       context.beginPath();
       context.arc(tool.x0, tool.y0, radius, 0, 2 * Math.PI);
-      context.fillStyle = '#FFFF99';
+      context.fillStyle = set_color;
       context.fill();
-      context.strokeStyle = '#FFFF99';
+      context.strokeStyle = set_color;
       context.stroke();
       context.closePath();
     };
@@ -180,7 +184,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         ///add circle
-        objects.push({type:"circle", coords:[tool.x0, tool.y0, radius]});
+        objects.push({type:"circle", coords:[tool.x0, tool.y0, radius], color: set_color});
       }
     };
   };
@@ -202,6 +206,8 @@ window.addEventListener('load', function () {
         return;
       }
 
+      var set_color = 'LightGreen'
+
       delta_x = tool.x0 - ev._x;
       delta_y = tool.y0 - ev._y;
       radius = Math.sqrt((delta_x)*(delta_x) + (delta_y)*(delta_y));
@@ -210,9 +216,9 @@ window.addEventListener('load', function () {
 
       context.beginPath();
       context.arc(tool.x0 - delta_x*0.5, tool.y0 - delta_y*0.5, (radius * 0.5), 0, 2 * Math.PI);
-      context.fillStyle = 'LightGreen';
+      context.fillStyle = set_color;
       context.fill();
-      context.strokeStyle = 'LightGreen';
+      context.strokeStyle = set_color;
       context.stroke();
       context.closePath();
     };
@@ -223,7 +229,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         //add circle to list of circles
-        objects.push({type:"circle", coords:[tool.x0 - delta_x*0.5, tool.y0 - delta_y*0.5, (radius * 0.5)]});
+        objects.push({type:"circle", coords:[tool.x0 - delta_x*0.5, tool.y0 - delta_y*0.5, (radius * 0.5)], color: set_color});
       }
     };
   };
@@ -289,6 +295,7 @@ window.addEventListener('load', function () {
       if (!tool.started) {
         return;
       }
+      var set_color = "LightPink"
 
       context.clearRect(0, 0, canvas.width, canvas.height);
       //first line- horizontal line from start point
@@ -299,9 +306,9 @@ window.addEventListener('load', function () {
       context.lineTo(tool.x0,   ev._y);
       context.lineTo(tool.x0,   tool.y0);
       context.closePath();
-      context.fillStyle = "LightPink";
+      context.fillStyle = set_color;
       context.fill();
-      context.strokeStyle='LightPink';
+      context.strokeStyle=set_color;
       context.stroke();
 
     };
@@ -314,7 +321,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         //append new rect coord to list of lists of rect
-        objects.push({type:"rectangle", coords:[tool.x0, tool.y0, ev._x, ev._y]});
+        objects.push({type:"rectangle", coords:[tool.x0, tool.y0, ev._x, ev._y], color: set_color});
       }
     };
   };
@@ -346,14 +353,16 @@ window.addEventListener('load', function () {
       }
       context.clearRect(0, 0, canvas.width, canvas.height);
 
+      var set_color = '#F6C0F6';
+
       context.beginPath();
       context.moveTo(tool.x0, tool.y0);
       context.lineTo(ev._x,   ev._y);
       context.lineTo(start_x,   ev._y);
       context.lineTo(start_x,   start_y);
-      context.strokeStyle = '#F6C0F6';
+      context.strokeStyle = set_color;
       context.stroke();
-      context.fillStyle = "#F6C0F6";
+      context.fillStyle = set_color;
       context.fill();
       
      
@@ -369,7 +378,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         //////append new line to list of lists
-        objects.push({type:"triangle", coords:[start_x, start_y, start_x, end_y, end_x, end_y]});
+        objects.push({type:"triangle", coords:[start_x, start_y, start_x, end_y, end_x, end_y], color: set_color});
       }
     };
   
@@ -388,11 +397,11 @@ tools.region = function() {
     var r = data[0];
     var b = data[1];
     var g = data[2];
-    if (r == 144 && b == 238 && g == 144 ||
-    r == 255 && b == 255 && g == 153 ||
-    r == 255 && b == 182 && g == 193 ||
-    r == 246 && b == 192 && g == 246 ||
-    r == 135 && b == 206 && g == 250){
+    if ((r == 144 && b == 238 && g == 144) ||
+    (r == 255 && b == 255 && g == 153) ||
+    (r == 255 && b == 182 && g == 193) ||
+    (r == 246 && b == 192 && g == 246) ||
+    (r == 135 && b == 206 && g == 250)){
          check_objects(x, y);
   }
   }
