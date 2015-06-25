@@ -1,4 +1,4 @@
-/* © 2009 ROBO Design
+/*Original, inspired by © 2009 ROBO Design
  * http://www.robodesign.ro
  */
 
