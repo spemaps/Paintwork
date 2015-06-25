@@ -384,7 +384,17 @@ tools.region = function() {
 
   function check_region(x, y) {
     //check pixel color
-    check_objects(x, y);
+    var data = context.getImageData(x, y, 1, 1).data;
+    var r = data[0];
+    var b = data[1];
+    var g = data[2];
+    if (r == 144 && b == 238 && g == 144 ||
+    r == 255 && b == 255 && g == 153 ||
+    r == 255 && b == 182 && g == 193 ||
+    r == 246 && b == 192 && g == 246 ||
+    r == 135 && b == 206 && g == 250){
+         check_objects(x, y);
+  }
   }
 
   function check_objects(x, y) {
