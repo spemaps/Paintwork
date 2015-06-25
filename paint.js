@@ -290,9 +290,9 @@ window.addEventListener('load', function () {
       context.lineTo(tool.x0,   ev._y);
       context.lineTo(tool.x0,   tool.y0);
       context.closePath();
-      context.fillStyle = "pink";
+      context.fillStyle = "LightPink";
       context.fill();
-      context.strokeStyle='pink';
+      context.strokeStyle='LightPink';
       context.stroke();
 
     };
