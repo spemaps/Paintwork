@@ -369,7 +369,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         //////append new line to list of lists
-        objects.push({type:"triangle", coords:[start_x, start_y, start_x, end_y, end_x, start_y]});
+        objects.push({type:"triangle", coords:[start_x, start_y, start_x, end_y, end_x, end_y]});
       }
     };
   
@@ -389,15 +389,77 @@ tools.region = function() {
 
   function check_objects(x, y) {
     //parse through objects
-  }
+    for(var i =0; i< objects.length, i++){
+      var c= objects[i].coords;
+
+      if(object.type = "triangle"){
+        var 4th_x = c[4];
+        var 4th_y = c[1];
+        if ((x>=c[0] && x<=c[4]) || (x<=c[0] && x>=c[4])){
+          if ((y>=c[1] && y<=c[3]) || (y<=c[1] && y>=c[3])){
+
+            if ((c[2]-x)*(c[2]-x) + (c[3]-y)*(c[3]-y) <= (4th_x - x)*(4th_x - x) + (4th_y -y)*(4th_y -y)){
+              //object(objects[i]);
+              alert("Triangle here!");
+            }
+
+          }
+        }
+
+
+      }
+      if(object.type = "circle"){
+        //find distance of x, y from center of circle
+        var x2 = c[0]-x;
+        var y2 = c[1]-y;
+        if(x2 *x2 + y2*y2 <= c[2] * c[2]){
+          //object(objects[i]);
+          alert("Circle here");
+
+        }
+        
+      }
+      if(object.type = "rectangle"){
+        if ((x>=c[0] && x<=c[2]) || (x<=c[0] && x>=c[2])){
+          if ((y>=c[1] && y<=c[3]) || (y<=c[1] && y>=c[3])){
+            //object(objects[i]);
+            alert("rectangle here");
+
+          }
+
+        }
+        
+      }
+      if(object.type = "line"){
+        //get slope of line
+        var slope = (c[0]-c[2])/(c[1]-c[3]);
+        var intercept = c[1] - slope*c[0];
+        if ((x>=c[0] && x<=c[2]) || (x<=c[0] && x>=c[2])){
+          if ((y>=c[1] && y<=c[3]) || (y<=c[1] && y>=c[3])){
+            if(y = slope*x + b){
+             // object(objects[i]);
+              
+            }
+          }
+        }
+        
+      }
+      
+    }
+
+  };
 
   function object(obj) {
-    if(obj.type = '')
-      obj.coords = cords;akdfajsdklfasd
+    
+    
+
   }
+
 }
 
 
   init();
 
 }, false); }
+
+
