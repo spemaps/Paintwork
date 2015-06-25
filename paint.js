@@ -122,6 +122,8 @@ window.addEventListener('load', function () {
       context.beginPath();
       context.moveTo(tool.x0, tool.y0);
       context.lineTo(ev._x,   ev._y);
+      context.lineWidth = 5;
+      context.strokeStyle = 'LightSkyBlue';
       context.stroke();
       context.closePath();
     };
@@ -164,7 +166,10 @@ window.addEventListener('load', function () {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       context.beginPath();
-      context.arc(tool.x0, tool.y0, radius, 0, 2 * Math.PI)
+      context.arc(tool.x0, tool.y0, radius, 0, 2 * Math.PI);
+      context.fillStyle = '#FFFF99';
+      context.fill();
+      context.strokeStyle = '#FFFF99';
       context.stroke();
       context.closePath();
     };
@@ -204,7 +209,10 @@ window.addEventListener('load', function () {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       context.beginPath();
-      context.arc(tool.x0 - delta_x*0.5, tool.y0 - delta_y*0.5, (radius * 0.5), 0, 2 * Math.PI)
+      context.arc(tool.x0 - delta_x*0.5, tool.y0 - delta_y*0.5, (radius * 0.5), 0, 2 * Math.PI);
+      context.fillStyle = 'LightGreen';
+      context.fill();
+      context.strokeStyle = 'LightGreen';
       context.stroke();
       context.closePath();
     };
@@ -245,9 +253,10 @@ window.addEventListener('load', function () {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       context.beginPath();
-      context.arc(tool.x0, tool.y0, 5, 0, 2 * Math.PI)
+      context.arc(tool.x0, tool.y0, 5, 0, 2 * Math.PI);
       context.fillStyle = 'black';
       context.fill();
+      context.strokeStyle = 'black';
       context.stroke();
       context.closePath();
     };
