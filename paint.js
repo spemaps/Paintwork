@@ -369,7 +369,7 @@ window.addEventListener('load', function () {
         tool.started = false;
         img_update();
         //////append new line to list of lists
-        objects.push({type:"triangle", coords:[start_x, start_y, start_x, end_y, end_x, start_y]});
+        objects.push({type:"triangle", coords:[start_x, start_y, start_x, end_y, end_x, end_y]});
       }
     };
   
@@ -402,8 +402,52 @@ tools.region = function() {
   }
 
   function object(obj) {
-    if(obj.type = '')
-      obj.coords = cords;akdfajsdklfasd
+    var coords = obj.coords;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (obj.type = 'line') {
+      context.beginPath();
+      context.moveTo(coords[0], coords[1]);
+      context.lineTo(coords[2], coords[3]);
+      context.lineWidth = 3;
+      context.strokeStyle = 'black';
+      context.stroke();
+      context.closePath();
+    }
+
+    if (obj.type = 'circle') {
+      context.beginPath();
+      context.arc(coord[0], coord[1], coord[2], 0, 2 * Math.PI);
+      context.lineWidth = 3;
+      context.strokeStyle = 'black';
+      context.stroke();
+      context.closePath();
+    }
+
+    if (obj.type = 'rectangle') {
+      context.beginPath();
+      context.moveTo(coords[0],   coords[1]);
+      context.lineTo(coords[2],   coords[1]);
+      context.lineTo(coords[2],   coords[3]);
+      context.lineTo(coords[0],   coords[3]);
+      context.lineTo(coords[0],   coords[1]);
+      context.lineWidth = 3;
+      context.strokeStyle = 'black';
+      context.stroke();
+      context.closePath();
+    }
+
+    if (obj.type = 'triangle') {
+      context.beginPath();
+      context.moveTo(coords[0], coords[1]);
+      context.lineTo(coords[4],   coords[5]);
+      context.lineTo(coords[2],   coords[3]);
+      context.lineTo(coords[0],   coords[1];
+      context.lineWidth = 3;
+      context.strokeStyle = 'black';
+      context.stroke();
+      context.closePath();
+    }
   }
 }
 
