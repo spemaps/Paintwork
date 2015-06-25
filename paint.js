@@ -351,9 +351,9 @@ window.addEventListener('load', function () {
       context.lineTo(ev._x,   ev._y);
       context.lineTo(start_x,   ev._y);
       context.lineTo(start_x,   start_y);
-      context.strokeStyle = 'A375FF';
+      context.strokeStyle = '#F6C0F6';
       context.stroke();
-      context.fillStyle = "A375FF";
+      context.fillStyle = "#F6C0F6";
       context.fill();
       
      
