@@ -351,6 +351,11 @@ window.addEventListener('load', function () {
       context.lineTo(ev._x,   ev._y);
       context.lineTo(start_x,   ev._y);
       context.lineTo(start_x,   start_y);
+      context.strokeStyle = 'A375FF';
+      context.stroke();
+      context.fillStyle = "A375FF";
+      context.fill();
+      
      
       context.stroke();
       context.closePath();
