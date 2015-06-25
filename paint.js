@@ -375,6 +375,28 @@ window.addEventListener('load', function () {
   
   };
 
+tools.region = function() {
+  this.mousemove = function (ev) {
+    if (objects.length > 0) {
+      check_region(ev._x, ev._y);
+    } 
+  }
+
+  function check_region(x, y) {
+    //check pixel color
+    check_objects(x, y);
+  }
+
+  function check_objects(x, y) {
+    //parse through objects
+  }
+
+  function object(obj) {
+    if(obj.type = '')
+      obj.coords = cords;akdfajsdklfasd
+  }
+}
+
 
   init();
 
