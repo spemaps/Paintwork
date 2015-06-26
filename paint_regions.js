@@ -423,11 +423,14 @@ tools.region = function() {
 
       
 
+<<<<<<< HEAD
       if (object[i].type = "triangle"){
 
 
       }
 
+=======
+>>>>>>> origin/master
       if (object[i].type = "circle"){
 
         c = objects[i].coords;
@@ -439,6 +442,7 @@ tools.region = function() {
         }
       }
 
+<<<<<<< HEAD
       if (object[i].type = "rectangle"){
         c= object[i].coords;
         if( x <= )
@@ -450,6 +454,8 @@ tools.region = function() {
 
       }
     
+=======
+>>>>>>> origin/master
     }
 
 

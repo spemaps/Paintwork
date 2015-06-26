@@ -3,8 +3,8 @@
  */
 
 // Keep everything in anonymous function, called on window load.
-if(window.addEventListener) {
-window.addEventListener('load', function () {
+////////~~~if(window.addEventListener) {
+////////~~~window.addEventListener('load', function () {
   var canvas, context, canvaso, contexto;
 
   // The active tool instance.
@@ -156,7 +156,7 @@ window.addEventListener('load', function () {
     }
   };
   
-    // The line2 tool.
+  // The line2 tool.
   tools.line2 = function () {
     var tool = this;
     this.started = false;
@@ -218,7 +218,7 @@ window.addEventListener('load', function () {
       }
     }
   };
-  
+
 
   //stamp type
   tools.circle = function () {
@@ -264,11 +264,19 @@ window.addEventListener('load', function () {
     };
   };
 
-  init();
+  //~~~~~~~~~init();
 
+<<<<<<< HEAD
 }, false); }
 <<<<<<< Updated upstream
 =======
 
 // vim:set spell spl=en fo=wan1croql tw=80 ts=2 sw=2 sts=2 sta et ai cin fenc=utf-8 ff=unix:
 >>>>>>> Stashed changes
+=======
+//~~~~~~~}, false); }
+
+if(window.addEventListener) {
+    window.addEventListener('load', init(), false)
+}
+>>>>>>> origin/master
