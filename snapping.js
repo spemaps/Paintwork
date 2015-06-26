@@ -155,6 +155,70 @@
       }
     }
   };
+  
+  // The line2 tool.
+  tools.line2 = function () {
+    var tool = this;
+    this.started = false;
+
+    var start_x = 0;
+    var start_y = 0;
+    var end_x = 0;
+    var end_y = 0;
+
+    this.mousedown = function (ev) {
+      tool.started = true;
+      var coords = closest(ev._x, ev._y);
+      start_x = coords[0];
+      start_y = coords[1];
+    };
+
+    //closest function
+    //find circle closest to x, y
+    function closest(x, y){
+          var close = [];
+          var distance = Infinity;
+          for (var i = 0; i < circles.length; i++) {
+            var c = circles[i];
+            var d = (x - c[0])*(x - c[0]) + (y - c[1])*(y - c[1]);
+            if (d < distance) {
+              close = c;
+              distance = d;
+            }
+          }
+          //return array of closest circle center coordinates
+          return close;
+      };
+
+    this.mousemove = function (ev) {
+      if (!tool.started) {
+        return;
+      }
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.beginPath();
+      context.moveTo(start_x, start_y);
+      var coords = closest(ev._x, ev._y);
+      context.lineTo(ev._x, ev._y);
+      end_x = ev._x;
+      end_y = ev._y;
+      context.lineWidth = 2;
+      context.strokeStyle = 'black';
+      context.stroke();
+      context.closePath();
+    };
+
+    this.mouseup = function (ev) {
+      if (tool.started) {
+        tool.mousemove(ev);
+        tool.started = false;
+        img_update();
+        //////append new line to list of lists
+        objects.push({type:"line", coords:[start_x, start_y, end_x, end_y]});
+      }
+    }
+  };
+
 
   //stamp type
   tools.circle = function () {
