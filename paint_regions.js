@@ -423,10 +423,6 @@ tools.region = function() {
 
       c = objects[i].coords;
 
-      if (object[i].type = "triangle"){
-
-
-      }
       if (object[i].type = "circle"){
         //find distance from point to center 
         xd = (c[0]- x)* (c[0]- x) ;
@@ -436,16 +432,6 @@ tools.region = function() {
         }
       }
 
-      if (object[i].type = "rectangle"){
-        y_dist = 
-
-
-      }
-      if (object[i].type = "line"){
-
-
-      }
-    
     }
 
 
