@@ -1,5 +1,5 @@
-/* © 2009 ROBO Design
- * http://www.robodesign.ro
+/* Inspired by ROBO Design
+ * https://dev.opera.com/articles/html5-canvas-painting/
  */
 
 // Keep everything in anonymous function, called on window load.
@@ -271,5 +271,3 @@
 if(window.addEventListener) {
     window.addEventListener('load', init(), false)
 }
-
-// vim:set spell spl=en fo=wan1croql tw=80 ts=2 sw=2 sts=2 sta et ai cin fenc=utf-8 ff=unix:
