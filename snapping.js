@@ -267,3 +267,8 @@ window.addEventListener('load', function () {
   init();
 
 }, false); }
+<<<<<<< Updated upstream
+=======
+
+// vim:set spell spl=en fo=wan1croql tw=80 ts=2 sw=2 sts=2 sta et ai cin fenc=utf-8 ff=unix:
+>>>>>>> Stashed changes

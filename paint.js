@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 /*Original, inspired by © 2009 ROBO Design
+=======
+/* inspired by robodesign
+>>>>>>> Stashed changes
  * http://www.robodesign.ro
  */
 
@@ -102,6 +106,9 @@ window.addEventListener('load', function () {
     var end_x = 0;
     var end_y = 0;
 
+
+      var set_color: 'LightSkyBlue';
+
     this.mousedown = function (ev) {
       tool.started = true;
       tool.x0 = ev._x;
@@ -117,7 +124,6 @@ window.addEventListener('load', function () {
         return;
       }
 
-      var set_color: 'LightSkyBlue'
 
       context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -150,6 +156,8 @@ window.addEventListener('load', function () {
 
     var delta_x, delta_y, radius;
 
+     var set_color: '#FFFF99'
+
     this.mousedown = function (ev) {
       tool.started = true;
       tool.x0 = ev._x;
@@ -161,7 +169,7 @@ window.addEventListener('load', function () {
         return;
       }
 
-      var set_color: '#FFFF99'
+     
 
       delta_x = tool.x0 - ev._x;
       delta_y = tool.y0 - ev._y;
@@ -195,6 +203,8 @@ window.addEventListener('load', function () {
 
     var delta_x, delta_y, radius;
 
+    var set_color = 'LightGreen'
+
     this.mousedown = function (ev) {
       tool.started = true;
       tool.x0 = ev._x;
@@ -206,7 +216,7 @@ window.addEventListener('load', function () {
         return;
       }
 
-      var set_color = 'LightGreen'
+     
 
       delta_x = tool.x0 - ev._x;
       delta_y = tool.y0 - ev._y;
@@ -285,6 +295,8 @@ window.addEventListener('load', function () {
     var end_x = 0;
     var end_y = 0;
 
+     var set_color = "LightPink"
+
     this.mousedown = function (ev) {
       tool.started = true;
       tool.x0 = ev._x;
@@ -295,7 +307,7 @@ window.addEventListener('load', function () {
       if (!tool.started) {
         return;
       }
-      var set_color = "LightPink"
+     
 
       context.clearRect(0, 0, canvas.width, canvas.height);
       //first line- horizontal line from start point
@@ -337,6 +349,9 @@ window.addEventListener('load', function () {
     var start_y = 0;
     var end_x = 0;
     var end_y = 0;
+
+    var set_color = '#F6C0F6';
+
     
     this.mousedown = function (ev) {
       tool.started = true;
@@ -353,8 +368,7 @@ window.addEventListener('load', function () {
       }
       context.clearRect(0, 0, canvas.width, canvas.height);
 
-      var set_color = '#F6C0F6';
-
+      
       context.beginPath();
       context.moveTo(tool.x0, tool.y0);
       context.lineTo(ev._x,   ev._y);
@@ -387,11 +401,12 @@ window.addEventListener('load', function () {
 tools.region = function() {
   this.mousemove = function (ev) {
     if (objects.length > 0) {
-      check_region(ev._x, ev._y);
+      //check_region(ev._x, ev._y);
+      check_objects( ev._x, ev.y);
     } 
-  }
+  };
 
-  function check_region(x, y) {
+  /*function check_region(x, y) {
     //check pixel color
     var data = context.getImageData(x, y, 1, 1).data;
     var r = data[0];
@@ -404,11 +419,41 @@ tools.region = function() {
     (r == 135 && b == 206 && g == 250)){
          check_objects(x, y);
   }
-  }
+  }*/
 
   function check_objects(x, y) {
     //parse through objects
-  }
+    for(var i = 0; i< objects.length; i++){
+
+      c = objects[i].coords;
+
+      if (object[i].type = "triangle"){
+
+
+      }
+      if (object[i].type = "circle"){
+        //find distance from point to center 
+        xd = (c[0]- x)* (c[0]- x) ;
+        yd = (c[1] - y) * (c[1] - y);
+        if(xd + yd <= c[2] * c[2]){
+          alert(it is a circle)
+        }
+      }
+
+      if (object[i].type = "rectangle"){
+        y_dist = 
+
+
+      }
+      if (object[i].type = "line"){
+
+
+      }
+    
+    }
+
+
+  };
 
   function object(obj) {
     var coords = obj.coords;
@@ -451,13 +496,13 @@ tools.region = function() {
       context.moveTo(coords[0], coords[1]);
       context.lineTo(coords[4],   coords[5]);
       context.lineTo(coords[2],   coords[3]);
-      context.lineTo(coords[0],   coords[1];
+      context.lineTo(coords[0],   coords[1]);
       context.lineWidth = 3;
       context.strokeStyle = 'black';
       context.stroke();
       context.closePath();
     }
-  }
+  };
 }
 
 

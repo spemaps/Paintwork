@@ -421,13 +421,16 @@ tools.region = function() {
     //parse through objects
     for(var i = 0; i< objects.length; i++){
 
-      c = objects[i].coords;
+      
 
       if (object[i].type = "triangle"){
 
 
       }
+
       if (object[i].type = "circle"){
+
+        c = objects[i].coords;
         //find distance from point to center 
         xd = (c[0]- x)* (c[0]- x) ;
         yd = (c[1] - y) * (c[1] - y);
@@ -437,7 +440,8 @@ tools.region = function() {
       }
 
       if (object[i].type = "rectangle"){
-        y_dist = 
+        c= object[i].coords;
+        if( x <= )
 
 
       }
